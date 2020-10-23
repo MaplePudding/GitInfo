@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import {HashRouter as Router, Route} from "react-router-dom";
 import SearchCpt from '../searchCpt/searchCpt'
 import status from '../status/backgroundStatus'
 import githubLightImg from '../img/githubLight.png'
@@ -8,7 +8,7 @@ import './frontCpt.css'
 import '../publicStyle/darkMode.css'
 import '../publicStyle/lightMode.css'
 
-function FrontCpt(){
+function FrontCpt(props){
     let [mode, setMode] = useState(status.getMode())
     let [userName, setUserName] = useState("");
 
@@ -23,10 +23,12 @@ function FrontCpt(){
             <div id="frontCptSubtitle" className={mode === "light" ? "fontColorLight" : "fontColorDark"}>
                 Discover who's upto what...
             </div>
-            <SearchCpt/>
+            <div id="frontCptSearchCptOuter">
+                <SearchCpt history={props.history} id="searchCpt"/>
+            </div>
             <div id="frontCptRandom">
                 Randomise User?
-                <div id="frontCptRandomBottom">d</div>
+                <div id="frontCptRandomBottom"></div>
             </div>
         </div>
     )

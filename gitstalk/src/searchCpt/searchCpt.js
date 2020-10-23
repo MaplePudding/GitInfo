@@ -5,9 +5,10 @@ import '../publicStyle/darkMode.css'
 import '../publicStyle/lightMode.css'
 import './searchCpt.css'
 
-function SearchCpt(){
+function SearchCpt(props){
 
     let [userName, setUserName] =useState("");
+    let userInfo = {};
 
     function changeUserName(userName){
         setUserName(userName)
@@ -15,8 +16,35 @@ function SearchCpt(){
 
     function search(){
         if(userName != ""){
-            Axios.get(`/api/${userName}`)
-                .then(res =>{console.log(res)});
+            Axios.all([
+                Axios.get(`/test/users/${userName}`),
+                Axios.get(`/test/users/${userName}/events?per_page=20`),
+                Axios.get(`/test/users/${userName}/repos?per_page=100`)
+            ]).then(
+                Axios.spread((userProfile, activity, repo) =>{
+                    userInfo.avator = userProfile.data["avatar_url"];
+                    userInfo.userName = userProfile.data.name;
+                    userInfo.followers = userProfile.data.followers;
+                    userInfo.following = userProfile.data.following;
+                    userInfo.blog = userProfile.data.blog;
+                    userInfo.joined = userProfile.data["created_at"];
+                    userInfo.location = userProfile.data.location;
+                    userInfo.lastUpdate = userProfile.data["updated_at"]
+                    userInfo.activity = activity.data;
+
+                    userInfo.repo = repo.data;
+
+                    if(props.history){
+                        props.history.push({
+                            pathname: 'info',
+                            state: userInfo
+                        })
+                    }else{
+                        props.setUserInfo(userInfo);
+                    }
+
+                })
+            )
         }
     }
 

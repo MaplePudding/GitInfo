@@ -1,7 +1,3 @@
-#searchCpt{
-    height: 20%;
-}
-
 #frontCpt{
     display: flex;
     flex-direction: column;
@@ -19,6 +15,18 @@
     font-size: 2em;
     font-weight: bold;
 }
+
+#frontCptSearchCptOuter{
+    width: 60%;
+    height: 7%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
 
 #frontCptLogo{
     height: 70%;

@@ -1,5 +1,6 @@
 #searchCpt{
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -8,11 +9,12 @@
 
 #searchCptTip{
     font-size: 1.1em;
+    margin-right: 2%;
 }
 
 #searchCptInput{
-    height: 25%;
-    width: 25%;
+    height: 75%;
+    width: 50%;
     border: 1px solid #CABBBB;
     border-radius: 1px;
     outline: none;
@@ -24,8 +26,8 @@
 }
 
 #searchCptButton{
-    height: 27%;
-    width: 7%;
+    height: 85%;
+    width: 16%;
     background: #5C75F6;
     color: white;
     outline: none;
