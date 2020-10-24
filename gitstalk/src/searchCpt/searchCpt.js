@@ -4,6 +4,7 @@ import Axios from 'axios'
 import '../publicStyle/darkMode.css'
 import '../publicStyle/lightMode.css'
 import './searchCpt.css'
+import status from "../status/backgroundStatus"
 
 function SearchCpt(props){
 
@@ -50,8 +51,8 @@ function SearchCpt(props){
 
     return(
         <div id="searchCpt">
-            <div id="searchCptTip">github.com/</div>
-            <input placeholder="  Enter Github Username" id="searchCptInput" onChange={(e) => changeUserName(e.target.value)}/>
+            <div id="searchCptTip" className={status.getMode() === "light" ? "searchCptLightColor" : "searchCptDarkColor"}>github.com/</div>
+            <input placeholder="  Enter Github Username" id="searchCptInput" onChange={(e) => changeUserName(e.target.value)} className={status.getMode() === "light" ? "searchCptInputLight" : "searchCptInputDark"}/>
             <button id="searchCptButton" onClick={search}>Search</button>
         </div>
     )

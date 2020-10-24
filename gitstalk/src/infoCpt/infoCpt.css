@@ -45,8 +45,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 9%;
+    margin-left: 11%;
 }
+
+
 
 #userProfile{
     width: 100%;
@@ -92,39 +94,37 @@
     justify-content: center;
     align-items: center;
     font-size: 0.9em;
-    padding: 5%;
 }
 
 #userInfoFlw > div{
-    width: 100%;
+    width: 95%;
     height: 25%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-left: 2%;
 }
 
 #userLanguage{
     width: 100%;
-    height: 20%;
+    height: 25%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    padding: 2%;
 }
 
 .languageItem{
     display: inline-block;
-    margin-right: 5%;
-    margin-bottom: 1%;
-    background: #F7F8FF;
     height: 20%;
-    color: #7575F6;
-    padding-left: 1%;
-    padding-right: 1%;
+    margin: 1% 1% 0% 3%;
+    padding-left: 2%;
+    padding-right: 2%;
+    height: 20%;
     font-size: 0.8em;
+    line-height: 180%;
 }
 
 #otherInfo{
@@ -132,13 +132,14 @@
     height: 35%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 }
 
 #otherInfo > div{
     width: 100%;
     height: 33%;
+    margin-left: 3%;
 }
 
 #joined{
@@ -156,17 +157,21 @@
 
 #userInfoInnerRight{
     height: 100%;
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    margin-right: 5%;
 }
 
 
 #userInfoInnerRightTopBar{
-    width: 100%;
+    width: 95%;
     height: 7%;
+    padding-left: 5%;
+    padding-top: 2%;
+    font-size: 1.2em;
 }
 
 #latestActivities{
@@ -184,13 +189,12 @@
 }
 
 .activityListItem{
-    width: 100%;
+    width: 90%;
     height: 10%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-top: 4%;
 }
 
 .activityListItem img{

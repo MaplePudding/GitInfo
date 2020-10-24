@@ -21,3 +21,83 @@
 .frontCptLightBackground_2{
     background: #FFFFFF;
 }
+
+.infoCptLightBackground{
+    background: #FDFDFD;
+}
+
+.changeStyleCptLightColor{
+    font-color: #333333;
+}
+
+.searchCptLightColor{
+    color: #333333;
+}
+
+.searchCptInputLight{
+    background: #FFFFFF;
+    border: none;
+    outline: none;
+    color: #000000;
+}
+
+.searchCptInputLight:focus{
+    outline: none;
+    border: none;
+}
+
+.infoCptInnerLeftLight{
+    background: #FFFFFF;
+}
+
+.profileNameLight{
+    color: #333333;
+}
+
+.infoCptInnerLeftLight > div{
+    border-top: 1px solid #FDFDFD;
+    border-left: 1px solid #FDFDFD;
+    border-right: 1px solid #FDFDFD;
+}
+
+.languageItemLight{
+    background: #F7F8FF;
+    color: #7575F6;
+}
+
+.userInfoFlwLight{
+    color: #888888;
+}
+
+.joinedLight{
+    color: #555555;
+}
+
+.locationLight{
+    color: #5C8BF8;
+}
+
+.locationLight > div{
+    color: #888888;
+}
+
+.lastUpdateLight{
+    color: #BAB7AF;
+}
+
+.infoCptInnerRightLight{
+    background: #FFFFFF;
+}
+
+.userInfoInnerRightTopBarLight{
+    color: #333339;
+    border-bottom: 2px solid #FDFDFD;
+}
+
+.activityListItemLight{
+    border-bottom: 1px solid #FDFDFD;
+}
+
+.activityListItemFrontLight{
+    color: #000000;
+}

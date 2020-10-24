@@ -15,14 +15,12 @@
 #searchCptInput{
     height: 75%;
     width: 50%;
-    border: 1px solid #CABBBB;
-    border-radius: 1px;
+    border: 1px solid #A9A9A9;
     outline: none;
 }
 
 #searchCptInput:focus{
-    border: 1px solid #5C75F6;
-    outline: none;
+    border: 1px solid #A9A9A9;
 }
 
 #searchCptButton{

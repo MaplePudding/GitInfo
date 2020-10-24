@@ -11,6 +11,7 @@ import createImg from "../img/create.png"
 import deleteImg from "../img/delete.png"
 import starImg from "../img/star.png"
 import branchImg from "../img/branches.png"
+import {unstable_batchedUpdates} from "react-dom";
 
 function getLanguages(repoArr){
     let languageArr = [];
@@ -28,7 +29,7 @@ function getLanguageCpt(languages){
     let result = [];
 
     for(let lag in languages){
-        result.push(<div className="languageItem">{languages[lag]}</div>)
+        result.push(<div className={status.getMode() === "light" ? "languageItem languageItemLight" : "languageItem languageItemDark"}>{languages[lag]}</div>)
     }
 
     return result;
@@ -64,7 +65,6 @@ function getSimpleTime(dateStr){
 
 function getActivities(activityArr){
     let result = [];
-    console.log(activityArr)
     for(let aty in activityArr){
         let tempAtyObj = {};
 
@@ -128,13 +128,12 @@ function getActivities(activityArr){
 }
 
 function getActivitiesList(activities){
-    console.log(activities)
     let activityList = [];
     for(let activity in activities){
         if(activities[activity].action === "star"){
             activityList.push(
-                <div className="activityListItem">
-                    <div className="activityListItemFront">
+                <div className={status.getMode() === "light" ? "activityListItemLight activityListItem" : "activityListItemDark activityListItem"}>
+                    <div className={status.getMode() === "light" ? "activityListItemFront activityListItemFrontLight" : "activityListItemFront activityListItemFrontDark"}>
                         <img className="activityListItemImg" src={activities[activity].img}/>
                         <div className="activityListItemContent">{activities[activity].activityContent}&nbsp;</div>
                         <div className="transitionItem">
@@ -150,8 +149,8 @@ function getActivitiesList(activities){
             );
         }else if(activities[activity].action === "createTag"){
             activityList.push(
-                <div className="activityListItem">
-                    <div className="activityListItemFront">
+                <div className="activityListItem" className={status.getMode() === "light" ? "activityListItemLight activityListItem" : "activityListItemDark activityListItem"}>
+                    <div className={status.getMode() === "light" ? "activityListItemFront activityListItemFrontLight" : "activityListItemFront activityListItemFrontDark"}>
                         <img className="activityListItemImg" src={activities[activity].img}/>
                         <div className="activityListItemContent">{activities[activity].activityContent}&nbsp;</div>
                         <div className="transitionItem">
@@ -167,8 +166,8 @@ function getActivitiesList(activities){
             )
         }else if(activities[activity].action === "branch"){
             activityList.push(
-                <div className="activityListItem">
-                    <div className="activityListItemFront">
+                <div className="activityListItem" className={status.getMode() === "light" ? "activityListItemLight activityListItem" : "activityListItemDark activityListItem"}>
+                    <div className={status.getMode() === "light" ? "activityListItemFront activityListItemFrontLight" : "activityListItemFront activityListItemFrontDark"}>
                         <img className="activityListItemImg" src={activities[activity].img}/>
                         <div className="activityListItemContent">{activities[activity].activityContent}&nbsp;</div>
                         <div className="transitionItem">
@@ -189,8 +188,8 @@ function getActivitiesList(activities){
             );
         }else if(activities[activity].action === "repository"){
             activityList.push(
-                <div className="activityListItem">
-                    <div className="activityListItemFront">
+                <div className="activityListItem" className={status.getMode() === "light" ? "activityListItemLight activityListItem" : "activityListItemDark activityListItem"}>
+                    <div className={status.getMode() === "light" ? "activityListItemFront activityListItemFrontLight" : "activityListItemFront activityListItemFrontDark"}>
                         <img className="activityListItemImg" src={activities[activity].img}/>
                         <div className="activityListItemContent">{activities[activity].activityContent}&nbsp;</div>
                         <div className="transitionItem">
@@ -205,8 +204,8 @@ function getActivitiesList(activities){
             )
         }else if(activities[activity].action === "create"){
             activityList.push(
-                <div className="activityListItem">
-                    <div className="activityListItemFront">
+                <div className="activityListItem" className={status.getMode() === "light" ? "activityListItemLight activityListItem" : "activityListItemDark activityListItem"}>
+                    <div className={status.getMode() === "light" ? "activityListItemFront activityListItemFrontLight" : "activityListItemFront activityListItemFrontDark"}>
                         <img className="activityListItemImg" src={activities[activity].img}/>
                         <div className="activityListItemContent">{activities[activity].activityContent}&nbsp;</div>
                         <div className="activityListItemTarget">{activities[activity].target}</div>
@@ -223,15 +222,15 @@ function getActivitiesList(activities){
             );
         }else if(activities[activity].action === "closePullRequest" || activities[activity].action === "closeIssue"){
             activityList.push(
-                <div className="activityListItem">
-                    <div className="activityListItemFront">
+                <div className="activityListItem" className={status.getMode() === "light" ? "activityListItemLight activityListItem" : "activityListItemDark activityListItem"}>
+                    <div className={status.getMode() === "light" ? "activityListItemFront activityListItemFrontLight" : "activityListItemFront activityListItemFrontDark"}>
                         <img className="activityListItemImg" src={activities[activity].img}/>
                         <div className="activityListItemContent">{activities[activity].activityContent}&nbsp;</div>
                         <div className="transitionItem">
                             <a href={activities[activity].url}>{activities[activity].target}</a>
                             <div className="transitionItemBottom"></div>
                         </div>
-                        <div> in&nbsp;</div>
+                        <div>&nbsp;in&nbsp;</div>
                         <div className="transitionItem">
                             <a href={activities[activity].url}>{activities[activity].repoName}</a>
                             <div className="transitionItemBottom"></div>
@@ -243,15 +242,15 @@ function getActivitiesList(activities){
                 </div>);
         }else if(activities[activity].action === "publish"){
             activityList.push(
-                <div className="activityListItem">
-                    <div className="activityListItemFront">
+                <div className="activityListItem" className={status.getMode() === "light" ? "activityListItemLight activityListItem" : "activityListItemDark activityListItem"}>
+                    <div className={status.getMode() === "light" ? "activityListItemFront activityListItemFrontLight" : "activityListItemFront activityListItemFrontDark"}>
                         <img className="activityListItemImg" src={activities[activity].img}/>
                         <div className="activityListItemContent">{activities[activity].activityContent}&nbsp;</div>
                         <div className="transitionItem">
                             <a href={activities[activity].url}>{activities[activity].target}</a>
                             <div className="transitionItemBottom"></div>
                         </div>
-                        <div> in&nbsp;</div>
+                        <div>&nbsp;in&nbsp;</div>
                         <div className="transitionItem">
                             <a href={activities[activity].url}>{activities[activity].repoName}</a>
                             <div className="transitionItemBottom"></div>
@@ -270,6 +269,7 @@ function InfoCpt(props){
 
     let [userInfo, setUserInfo] = useState({});
     let [mode, setMode] = useState(status.getMode());
+    console.log(status.getMode())
 
     if(props.location.state && !lodash.isEqual(userInfo, props.location.state)){
         setUserInfo(props.location.state);
@@ -279,7 +279,7 @@ function InfoCpt(props){
 
     let languageCpt = getLanguageCpt(languages);
     return(
-        <div id="infoCpt">
+        <div id="infoCpt" className={status.getMode() === "light" ? "infoCptLightBackground" : "infoCptDarkBackground"}>
             <div id="userInfoTopBar">
                 <ChangeStyleCpt setMode={setMode}/>
                 <div id="infoCptSearchCptOuter">
@@ -289,21 +289,21 @@ function InfoCpt(props){
 
             <div id="userInfo">
                 <div id="userInfoInner">
-                    <div id="userInfoInnerLeft">
+                    <div id="userInfoInnerLeft" className={status.getMode() === "light" ? "infoCptInnerLeftLight" : "infoCptInnerLeftDark"}>
                         <div id="userProfile">
                             <div id="profileItem">
                                 <img src={userInfo.avator}/>
                                 <div>
-                                    <div id="profileName">
+                                    <div id="profileName" className={status.getMode() === "light" ? "profileNameLight" : "profileNameDark"}>
                                         {userInfo.userName}
                                     </div>
                                     <div id="profileBlog">
-                                        <a href={userInfo.blog}>{userInfo.blog ? userInfo.blog.substring(7) : ""}</a>
+                                            <a href={userInfo.blog}>{userInfo.blog ? userInfo.blog.substring(7) : ""}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div id="userInfoFlw">
+                        <div id="userInfoFlw" className={status.getMode() === "light" ? "userInfoFlwLight" : "userInfoFlwDark"}>
                             <div>
                                 <div>Followers</div>
                                 <div>{userInfo.followers}</div>
@@ -326,24 +326,24 @@ function InfoCpt(props){
                             {languageCpt}
                         </div>
                         <div id="otherInfo">
-                            <div id="joined">
+                            <div id="joined" className={status.getMode() === "light" ? "joinedLight" : "joinedDark"}>
                                 <div>Joined</div>
                                 {getSimpleTime(userInfo.joined)}
                             </div>
-                            <div id="location">
+                            <div id="location" className={status.getMode() === "light" ? "locationLight" : "locationDark"}>
                                 <div>Location</div>
                                 {userInfo.location}
                             </div>
-                            <div id="lastUpdate">
+                            <div id="lastUpdate" className={status.getMode() === "light" ? "lastUpdateLight" : "lastUpdateDark"}>
                                 Last Updated on {getSimpleTime(userInfo.lastUpdate)}
                             </div>
                         </div>
                     </div>
-                    <div id="userInfoInnerRight">
-                        <div id="userInfoInnerRightTopBar">
+                    <div id="userInfoInnerRight" className={status.getMode() === "light" ? "infoCptInnerRightLight" : "infoCptInnerRightDark"}>
+                        <div id="userInfoInnerRightTopBar" className={status.getMode() === "light" ? "userInfoInnerRightTopBarLight" : "userInfoInnerRightTopBarDark"}>
                             LATEST ACTIVITIES
                         </div>
-                        <div id="latestActivities">
+                        <div id="latestActivities" className={status.getMode() === "light" ? "latestActivitiesLight" : "latestActivitiesDark"}>
                             {getActivitiesList(getActivities(userInfo.activity))}
                         </div>
                     </div>

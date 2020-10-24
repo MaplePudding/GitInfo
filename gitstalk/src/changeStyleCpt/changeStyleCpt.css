@@ -6,6 +6,10 @@
     font-weight: bold;
 }
 
-img{
+#changeStyleCpt img{
     height: 50%;
+}
+
+#changeStyleCpt img:nth-child(3){
+    cursor: pointer;
 }

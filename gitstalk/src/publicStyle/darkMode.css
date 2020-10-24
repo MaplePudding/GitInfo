@@ -21,3 +21,84 @@
 .frontCptDarkBackground_2{
     background: #24272E;
 }
+
+.infoCptDarkBackground{
+    background: #1A1C21;
+}
+
+.changeStyleCptDarkColor{
+    color: #FFFFFF;
+}
+
+.searchCptDarkColor{
+    color: #E9E9E9;
+}
+
+.searchCptInputDark{
+    background: #24272E;
+    outline: none;
+    border: none;
+    color: #E4E4EB;
+}
+
+.searchCptInputDark:focus{
+    outline: none;
+    border: none;
+}
+
+.infoCptInnerLeftDark{
+    background: #24272E;
+}
+
+.profileNameDark{
+    color: #EAE4E5;
+}
+
+.infoCptInnerLeftDark > div{
+    border-top: 1px solid #2E323B;
+    border-left: 1px solid #2E323B;
+    border-right: 1px solid #2E323B;
+}
+
+.languageItemDark{
+    background: #272B39;
+    color: #5A75F6;
+}
+
+.userInfoFlwDark{
+    color: #C8D4D5;
+}
+
+.joinedDark{
+    color: #D3D4D5;
+}
+
+.locationDark{
+    color: #5C69C2;
+}
+
+.locationDark > div{
+    color: #D3D4D5;
+}
+
+.lastUpdateDark{
+    color: #6E7D82;
+}
+
+.infoCptInnerRightDark{
+    background: #24272E;
+    border: 1px solid #2E323B;
+}
+
+.userInfoInnerRightTopBarDark{
+    color: #EAEAEB;
+    border-bottom: 2px solid #2E323B;
+}
+
+.activityListItemDark{
+    border-bottom: 1px solid #2E323B;
+}
+
+.activityListItemFrontDark{
+    color: #D3D4D5;
+}
