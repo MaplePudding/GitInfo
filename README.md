@@ -1,4 +1,4 @@
-# gitstalk
+# gitInfo
 Imitated gitstalk using react
 
 ## How to use?
