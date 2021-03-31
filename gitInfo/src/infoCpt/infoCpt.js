@@ -269,7 +269,7 @@ function InfoCpt(props){
 
     let [userInfo, setUserInfo] = useState({});
     let [mode, setMode] = useState(status.getMode());
-    console.log(status.getMode())
+    console.log(1);
 
     if(props.location.state && !lodash.isEqual(userInfo, props.location.state)){
         setUserInfo(props.location.state);
